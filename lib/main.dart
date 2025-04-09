@@ -52,16 +52,18 @@ class _MyTolleListeState extends State<MyTolleListe> {
   @override
   Widget build(BuildContext context) {
     return 
-    Column(mainAxisAlignment: MainAxisAlignment.spaceAround, spacing: 16,
+    Column(mainAxisAlignment: MainAxisAlignment.start, spacing: 16,
       children: [
         SizedBox(height: 12),
         Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-          ElevatedButton(onPressed: () { iDeleteTheLastPosition(); }, child: Text("Letzte Position löschen!")),
-          ElevatedButton(onPressed: () { iRestoreTheNextPosition(); }, child: Text("Liste wieder erweitern!"))]),              
-        ListView.builder(
-          shrinkWrap: true,
-          itemCount: listeImState.length,
-          itemBuilder: (context, index) => ListTile(onTap: () {}, leading: Icon(Icons.liquor_outlined), trailing: Icon(Icons.medical_services), title: Text(listeImState[index]))),
+          ElevatedButton(onPressed: listeImState.isNotEmpty ? () { iDeleteTheLastPosition(); } : null, child: Text("Letzte Position löschen!")),
+          ElevatedButton(onPressed: listeImState.length < widget.listeImWidget.length ? () { iRestoreTheNextPosition(); } : null, child: Text("Liste wieder erweitern!"))]),
+        listeImState.isNotEmpty ? 
+          ListView.builder(padding: EdgeInsets.all(8), scrollDirection: Axis.vertical, 
+            shrinkWrap: true,
+            itemCount: listeImState.length,
+            itemBuilder: (context, index) => ListTile(onTap: () {}, leading: Icon(Icons.liquor_outlined), trailing: Icon(Icons.medical_services), title: Text(listeImState[index])))
+          : Center(child: Text("Nur Luft und Liebe...")),
       ],
     );
   }
