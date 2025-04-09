@@ -8,7 +8,7 @@ void main() {
 /// von:
 /// - Kenny Mohr
 /// - Evigenios Chontzidis
-/// - Salih Erkan
+/// - Leon Bösche
 /// - Björg Schneider
 /// 
 class MainApp extends StatelessWidget {

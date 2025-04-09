@@ -4,7 +4,7 @@ ListView-Projekt mit ListViewBuilder
 von:
 - Kenny Mohr
 - Evigenios Chontzidis
-- Salih Erkan
+- Leon Bösche
 - Björg Schneider
  
 Aufgabe:
